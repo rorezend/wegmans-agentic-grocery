@@ -174,23 +174,312 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
 
 <!-- ════════════════════════ HERO ════════════════════════ -->
 <section id="sec-hero" class="section active" style="max-width:none;padding:0">
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">⚡ Powered by Azure AI Foundry</div>
-      <h1>Wegmans Agentic Grocery OS</h1>
-      <p>From Grocery Store to Autonomous Retail Platform. Five AI agents working in concert to transform store operations, merchandising, and customer experience.</p>
-      <button class="hero-btn" onclick="openSimulation()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Run Live Store Simulation
-      </button>
-      <div class="hero-metrics">
-        <div class="hero-metric"><div class="value">$42K</div><div class="label">Weekly Revenue Uplift</div></div>
-        <div class="hero-metric"><div class="value">34%</div><div class="label">Waste Reduction</div></div>
-        <div class="hero-metric"><div class="value">5</div><div class="label">Autonomous Agents</div></div>
-        <div class="hero-metric"><div class="value">2.1s</div><div class="label">Decision Latency</div></div>
+<style>
+/* ──── Hero Story Styles ──── */
+.story-hero{min-height:100vh;padding:100px 32px 40px;position:relative;overflow:hidden}
+.story-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(99,102,241,.1),transparent 70%);pointer-events:none}
+
+/* Title block */
+.story-title-block{text-align:center;margin-bottom:56px;position:relative;z-index:1}
+.story-title-block h1{font-size:clamp(36px,5.5vw,64px);line-height:1.08;margin-bottom:12px;background:linear-gradient(135deg,#fff 25%,#a78bfa 65%,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.story-subtitle{font-size:18px;color:var(--text2);max-width:520px;margin:0 auto 32px}
+
+/* Transformation flow container */
+.tf-flow{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+
+/* The 3-column layout: Before → Agent Layer → After */
+.tf-columns{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:start;margin-bottom:48px}
+
+/* Left & Right pillars */
+.tf-pillar{position:relative}
+.tf-pillar-label{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.tf-pillar-label .pillar-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.tf-pillar-label h3{font-size:15px;font-weight:700}
+.tf-pillar-label .pillar-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:100px}
+
+/* Pain cards (left) */
+.pain-card{padding:14px 16px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(239,68,68,.12);margin-bottom:10px;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden}
+.pain-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);border-radius:0 2px 2px 0;opacity:.6}
+.pain-card:hover{border-color:rgba(239,68,68,.3);transform:translateX(4px)}
+.pain-card.glow{border-color:rgba(239,68,68,.4);box-shadow:0 0 20px rgba(239,68,68,.08)}
+.pain-card .pc-title{font-size:13px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.pain-card .pc-stat{font-size:12px;color:var(--text2)}
+.pain-card .pc-number{font-size:18px;font-weight:800;color:var(--red);float:right;margin-top:-4px}
+
+/* Outcome cards (right) */
+.outcome-card{padding:14px 16px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(16,185,129,.12);margin-bottom:10px;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden;opacity:.35;transform:translateX(-8px)}
+.outcome-card::after{content:'';position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--green);border-radius:2px 0 0 2px;opacity:.6}
+.outcome-card:hover{border-color:rgba(16,185,129,.3)}
+.outcome-card.lit{opacity:1;transform:translateX(0);border-color:rgba(16,185,129,.3);box-shadow:0 0 20px rgba(16,185,129,.06)}
+.outcome-card .oc-title{font-size:13px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.outcome-card .oc-stat{font-size:12px;color:var(--text2)}
+.outcome-card .oc-number{font-size:18px;font-weight:800;color:var(--green);float:right;margin-top:-4px}
+
+/* Center connector column */
+.tf-connector{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:52px}
+.tf-connector .conn-line{width:2px;flex:1;min-height:100%;background:linear-gradient(180deg,rgba(99,102,241,.1),rgba(99,102,241,.4),rgba(99,102,241,.1));position:relative}
+.tf-connector .conn-pulse{position:absolute;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(99,102,241,.6);animation:connPulseMove 3s ease-in-out infinite}
+@keyframes connPulseMove{0%{top:10%;opacity:.3}50%{top:85%;opacity:1}100%{top:10%;opacity:.3}}
+.conn-arrow{font-size:20px;color:var(--accent2);margin:8px 0;animation:arrowPulse 2s ease-in-out infinite}
+@keyframes arrowPulse{0%,100%{opacity:.4;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+
+/* ──── Central Agent Orchestrator ──── */
+.agent-hub{max-width:1200px;margin:0 auto 48px;position:relative}
+.agent-hub-header{text-align:center;margin-bottom:24px}
+.agent-hub-header h2{font-size:20px;display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:100px;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(139,92,246,.1));border:1px solid rgba(99,102,241,.2)}
+.agent-ring{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.agent-node{width:190px;padding:16px;border-radius:var(--radius-lg);background:var(--bg2);border:1px solid rgba(99,102,241,.15);text-align:center;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden}
+.agent-node::before{content:'';position:absolute;inset:-1px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(139,92,246,.15),rgba(99,102,241,.2));opacity:0;transition:opacity .4s;z-index:0;pointer-events:none}
+.agent-node:hover::before{opacity:1}
+.agent-node:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(99,102,241,.15)}
+.agent-node.active{border-color:rgba(99,102,241,.4);box-shadow:0 0 24px rgba(99,102,241,.12)}
+.agent-node.active::before{opacity:1}
+.agent-node .an-icon{font-size:28px;margin-bottom:8px;position:relative;z-index:1}
+.agent-node .an-name{font-size:13px;font-weight:700;margin-bottom:4px;position:relative;z-index:1}
+.agent-node .an-desc{font-size:11px;color:var(--text3);line-height:1.4;position:relative;z-index:1}
+.agent-node .an-status{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:100px;font-size:10px;font-weight:700;position:relative;z-index:1;text-transform:uppercase;letter-spacing:.04em}
+
+/* Data flow lines connecting agents to pillars */
+.flow-lines{position:absolute;inset:0;pointer-events:none;z-index:0}
+
+/* ──── Animated Signal Beams ──── */
+.signal-beam{position:absolute;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;animation:beamSweep 4s ease-in-out infinite}
+@keyframes beamSweep{0%{opacity:0;transform:translateX(-100%)}30%{opacity:.5}50%{opacity:.3;transform:translateX(0)}70%{opacity:.5}100%{opacity:0;transform:translateX(100%)}}
+
+/* ──── Bottom CTA & Metrics ──── */
+.story-cta{text-align:center;margin-top:8px;position:relative;z-index:1}
+.story-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto 36px}
+.story-metric{padding:18px 16px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.06);text-align:center;transition:var(--transition)}
+.story-metric:hover{border-color:rgba(99,102,241,.2);transform:translateY(-2px)}
+.story-metric .sm-val{font-size:26px;font-weight:800}
+.story-metric .sm-lbl{font-size:11px;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+
+/* ──── Animated data particles ──── */
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;opacity:0}
+.particle.p1{background:var(--accent);animation:floatP 8s linear infinite;left:15%;top:20%}
+.particle.p2{background:var(--green);animation:floatP 11s linear infinite 2s;left:75%;top:60%}
+.particle.p3{background:var(--accent2);animation:floatP 9s linear infinite 4s;left:45%;top:40%}
+.particle.p4{background:var(--amber);animation:floatP 10s linear infinite 1s;left:85%;top:25%}
+.particle.p5{background:var(--blue);animation:floatP 12s linear infinite 3s;left:25%;top:75%}
+.particle.p6{background:var(--accent);animation:floatP 7s linear infinite 5s;left:55%;top:15%}
+@keyframes floatP{0%{opacity:0;transform:translateY(0) scale(1)}10%{opacity:.6}50%{opacity:.3;transform:translateY(-60px) scale(1.5)}90%{opacity:.5}100%{opacity:0;transform:translateY(-120px) scale(.5)}}
+
+/* ──── Responsive ──── */
+@media(max-width:900px){
+  .tf-columns{grid-template-columns:1fr;gap:24px}
+  .tf-connector{flex-direction:row;padding:0;min-height:auto;height:40px}
+  .tf-connector .conn-line{width:100%;height:2px;min-height:2px;background:linear-gradient(90deg,rgba(99,102,241,.1),rgba(99,102,241,.4),rgba(99,102,241,.1))}
+  .agent-ring{gap:8px}
+  .agent-node{width:160px;padding:12px}
+  .story-metrics{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<div class="story-hero">
+  <div class="particles">
+    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
+    <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
+  </div>
+
+  <!-- Title -->
+  <div class="story-title-block">
+    <div class="hero-badge">⚡ Powered by Azure AI Foundry + Copilot Studio</div>
+    <h1>Wegmans Agentic Grocery OS</h1>
+    <p class="story-subtitle">From Grocery Store to Autonomous Retail Platform</p>
+  </div>
+
+  <!-- ── Transformation Flow: Before → Agents → After ── -->
+  <div class="tf-flow">
+    <div class="tf-columns">
+
+      <!-- LEFT: Today's Pain Points -->
+      <div class="tf-pillar tf-before">
+        <div class="tf-pillar-label">
+          <div class="pillar-icon" style="background:var(--red-bg)">📉</div>
+          <div>
+            <h3>Today's Grocery Retail</h3>
+            <span class="pillar-tag" style="background:var(--red-bg);color:var(--red)">Manual · Reactive · Fragmented</span>
+          </div>
+        </div>
+        <div class="pain-card glow" data-pair="0">
+          <div class="pc-title">🥬 Stockout Blindness <span class="pc-number">$419</span></div>
+          <div class="pc-stat">Baby spinach at 4 units — nobody knows until the shelf is empty. $419/week lost revenue per SKU.</div>
+        </div>
+        <div class="pain-card" data-pair="1">
+          <div class="pc-title">🥛 Overstock & Waste <span class="pc-number">34%</span></div>
+          <div class="pc-stat">85 gallons of milk, 6-day supply. No markdown trigger. 34% of perishable overstock becomes waste.</div>
+        </div>
+        <div class="pain-card" data-pair="2">
+          <div class="pc-title">📊 Gut-Feel Merchandising <span class="pc-number">0</span></div>
+          <div class="pc-stat">Planogram decisions made quarterly by committee. Zero real-time demand signal integration.</div>
+        </div>
+        <div class="pain-card" data-pair="3">
+          <div class="pc-title">🛒 Missed Basket Value <span class="pc-number">$8.2</span></div>
+          <div class="pc-stat">Average customer basket misses $8.20 in complementary items. No cross-sell engine at shelf level.</div>
+        </div>
+        <div class="pain-card" data-pair="4">
+          <div class="pc-title">🚚 Surprise Disruptions <span class="pc-number">2.3d</span></div>
+          <div class="pc-stat">Supply issues surface 2.3 days late. Vendor reliability blind spots cause preventable stockouts.</div>
+        </div>
+      </div>
+
+      <!-- CENTER: Connector -->
+      <div class="tf-connector">
+        <div class="conn-arrow">→</div>
+        <div class="conn-line" style="min-height:340px">
+          <div class="conn-pulse"></div>
+        </div>
+        <div class="conn-arrow">→</div>
+      </div>
+
+      <!-- RIGHT: Autonomous Outcomes -->
+      <div class="tf-pillar tf-after">
+        <div class="tf-pillar-label">
+          <div class="pillar-icon" style="background:var(--green-bg)">📈</div>
+          <div>
+            <h3>Autonomous Retail</h3>
+            <span class="pillar-tag" style="background:var(--green-bg);color:var(--green)">Proactive · Connected · Intelligent</span>
+          </div>
+        </div>
+        <div class="outcome-card" data-pair="0">
+          <div class="oc-title">🎯 Predictive Replenishment <span class="oc-number">0</span></div>
+          <div class="oc-stat">AI detects 0.3-day supply and auto-triggers cross-store transfer + emergency reorder. Zero stockouts.</div>
+        </div>
+        <div class="outcome-card" data-pair="1">
+          <div class="oc-title">♻️ Dynamic Waste Prevention <span class="oc-number">-34%</span></div>
+          <div class="oc-stat">Auto-markdown from $3.49→$2.99 when overstock detected. Cross-promote with cereal. Waste drops 34%.</div>
+        </div>
+        <div class="outcome-card" data-pair="2">
+          <div class="oc-title">📐 Real-Time Planograms <span class="oc-number">+18%</span></div>
+          <div class="oc-stat">Shelf allocation adjusts weekly based on demand velocity. Rotisserie chicken to front display → +18% revenue.</div>
+        </div>
+        <div class="outcome-card" data-pair="3">
+          <div class="oc-title">🧺 Intelligent Basket Builder <span class="oc-number">+$5.99</span></div>
+          <div class="oc-stat">AI suggests yogurt + strawberries pairing at BOGO. Average basket value increases $5.99 per transaction.</div>
+        </div>
+        <div class="outcome-card" data-pair="4">
+          <div class="oc-title">🛡️ Proactive Risk Shield <span class="oc-number">3.3d</span></div>
+          <div class="oc-stat">Vendor reliability scoring (0.87) triggers backup qualification 3.3 days before disruption hits the shelf.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Agent Orchestration Hub ── -->
+    <div class="agent-hub">
+      <div class="agent-hub-header">
+        <h2>🧠 AI Agent Orchestration Layer</h2>
+      </div>
+      <div class="agent-ring">
+        <div class="agent-node" data-agent="0" onclick="activateAgent(0)">
+          <div class="an-icon">🏪</div>
+          <div class="an-name">Store Status</div>
+          <div class="an-desc">Real-time store health monitoring</div>
+          <div class="an-status" style="background:var(--green-bg);color:var(--green)">● Monitoring</div>
+        </div>
+        <div class="agent-node" data-agent="1" onclick="activateAgent(1)">
+          <div class="an-icon">🤖</div>
+          <div class="an-name">Recommend Actions</div>
+          <div class="an-desc">Prioritized autonomous decisions</div>
+          <div class="an-status" style="background:var(--accent-glow);color:var(--accent2)">● 5 Actions Ready</div>
+        </div>
+        <div class="agent-node" data-agent="2" onclick="activateAgent(2)">
+          <div class="an-icon">📊</div>
+          <div class="an-name">Merch Optimize</div>
+          <div class="an-desc">Demand-driven shelf intelligence</div>
+          <div class="an-status" style="background:var(--amber-bg);color:var(--amber)">● 4 Changes</div>
+        </div>
+        <div class="agent-node" data-agent="3" onclick="activateAgent(3)">
+          <div class="an-icon">🛒</div>
+          <div class="an-name">Basket Builder</div>
+          <div class="an-desc">Personalized shopping AI</div>
+          <div class="an-status" style="background:var(--green-bg);color:var(--green)">● Ready</div>
+        </div>
+        <div class="agent-node" data-agent="4" onclick="activateAgent(4)">
+          <div class="an-icon">🔗</div>
+          <div class="an-name">Supply Risk</div>
+          <div class="an-desc">Predictive disruption prevention</div>
+          <div class="an-status" style="background:var(--red-bg);color:var(--red)">● 2 Critical</div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- ── Bottom: Metrics + CTA ── -->
+  <div class="story-cta">
+    <div class="story-metrics">
+      <div class="story-metric"><div class="sm-val" style="color:var(--green)">$42K</div><div class="sm-lbl">Weekly Revenue Uplift</div></div>
+      <div class="story-metric"><div class="sm-val" style="color:var(--amber)">34%</div><div class="sm-lbl">Waste Reduction</div></div>
+      <div class="story-metric"><div class="sm-val" style="color:var(--accent2)">5</div><div class="sm-lbl">Autonomous Agents</div></div>
+      <div class="story-metric"><div class="sm-val" style="color:var(--blue)">2.1s</div><div class="sm-lbl">Decision Latency</div></div>
+    </div>
+    <button class="hero-btn" onclick="openSimulation()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Run Live Store Simulation
+    </button>
+    <p style="font-size:12px;color:var(--text3);margin-top:16px">Click any agent above to see the data flow, or run the full simulation →</p>
+  </div>
+</div>
+
+<script>
+// ──── Agent ↔ Pain/Outcome pairing interaction ────
+let activeAgentIdx = -1;
+
+function activateAgent(idx) {
+  const nodes = document.querySelectorAll('.agent-node');
+  const pains = document.querySelectorAll('.pain-card');
+  const outcomes = document.querySelectorAll('.outcome-card');
+
+  if (activeAgentIdx === idx) {
+    // Deactivate
+    nodes.forEach(n => n.classList.remove('active'));
+    pains.forEach(p => p.classList.remove('glow'));
+    outcomes.forEach(o => o.classList.remove('lit'));
+    pains[0].classList.add('glow'); // reset first glow
+    activeAgentIdx = -1;
+    return;
+  }
+
+  activeAgentIdx = idx;
+  nodes.forEach(n => n.classList.remove('active'));
+  nodes[idx].classList.add('active');
+
+  // Light up the matching pain + outcome pair
+  pains.forEach(p => p.classList.remove('glow'));
+  outcomes.forEach(o => o.classList.remove('lit'));
+  pains[idx].classList.add('glow');
+  outcomes[idx].classList.add('lit');
+}
+
+// Auto-cycle through agents on load
+(function autoCycle() {
+  let step = 0;
+  const interval = setInterval(() => {
+    if (activeAgentIdx !== -1) { clearInterval(interval); return; } // user took over
+    activateAgent(step % 5);
+    step++;
+    if (step >= 10) clearInterval(interval); // stop after 2 full cycles
+  }, 2000);
+})();
+
+// Hover pairing: hover a pain card to light its outcome
+document.querySelectorAll('.pain-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    const pair = card.dataset.pair;
+    const outcome = document.querySelector(`.outcome-card[data-pair="${pair}"]`);
+    if (outcome) outcome.classList.add('lit');
+    card.classList.add('glow');
+  });
+  card.addEventListener('mouseleave', () => {
+    if (activeAgentIdx === -1) {
+      const pair = card.dataset.pair;
+      const outcome = document.querySelector(`.outcome-card[data-pair="${pair}"]`);
+      if (outcome) outcome.classList.remove('lit');
+      if (pair !== '0') card.classList.remove('glow');
+    }
+  });
+});
+</script>
 </section>
 
 <!-- ════════════════════════ STORE INTELLIGENCE ════════════════════════ -->
