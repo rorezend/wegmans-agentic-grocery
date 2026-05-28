@@ -162,6 +162,7 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
     <div class="nav-brand">Wegmans Agentic Grocery OS</div>
     <div class="nav-tabs">
       <button class="nav-tab active" onclick="showSection('hero')">Overview</button>
+      <button class="nav-tab" onclick="showSection('gap')">Insight → Action</button>
       <button class="nav-tab" onclick="showSection('intelligence')">Store Intelligence</button>
       <button class="nav-tab" onclick="showSection('actions')">Autonomous Actions</button>
       <button class="nav-tab" onclick="showSection('merch')">Merchandising</button>
@@ -289,7 +290,8 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
   <div class="story-title-block">
     <div class="hero-badge">⚡ Powered by Azure AI Foundry + Copilot Studio</div>
     <h1>Wegmans Agentic Grocery OS</h1>
-    <p class="story-subtitle">From Grocery Store to Autonomous Retail Platform</p>
+    <p class="story-subtitle">From Forecasting &amp; Insights → Autonomous Retail Execution</p>
+    <div class="story-callout" style="display:inline-block;padding:8px 24px;border-radius:100px;background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.18);font-size:13px;font-weight:600;color:var(--accent2);letter-spacing:.02em;margin-bottom:20px">Closing the Execution Gap in Grocery Operations</div>
     <div class="story-thesis">
       <p>"Wegmans already invests in best-in-class forecasting and analytics.<br>The next frontier is closing the execution gap—<br>moving from <em>knowing what will happen</em> → to <em>automatically acting on it</em>."</p>
     </div>
@@ -350,7 +352,7 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
         </div>
         <div class="outcome-card" data-pair="0">
           <div class="oc-title">🎯 Predictive Replenishment <span class="oc-number">0</span></div>
-          <div class="oc-stat">AI detects 0.3-day supply and auto-triggers cross-store transfer + emergency reorder. Zero stockouts.</div>
+          <div class="oc-stat">Forecasting identifies 0.3-day supply → agent auto-triggers cross-store transfer + emergency reorder. Zero stockouts.</div>
         </div>
         <div class="outcome-card" data-pair="1">
           <div class="oc-title">♻️ Dynamic Waste Prevention <span class="oc-number">-34%</span></div>
@@ -362,7 +364,7 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
         </div>
         <div class="outcome-card" data-pair="3">
           <div class="oc-title">🧺 Intelligent Basket Builder <span class="oc-number">+$5.99</span></div>
-          <div class="oc-stat">AI suggests yogurt + strawberries pairing at BOGO. Average basket value increases $5.99 per transaction.</div>
+          <div class="oc-stat">Agent suggests yogurt + strawberries pairing at BOGO. Average basket value increases $5.99 per transaction.</div>
         </div>
         <div class="outcome-card" data-pair="4">
           <div class="oc-title">🛡️ Proactive Risk Shield <span class="oc-number">3.3d</span></div>
@@ -386,13 +388,13 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
         <div class="agent-node" data-agent="1" onclick="activateAgent(1)">
           <div class="an-icon">🤖</div>
           <div class="an-name">Recommend Actions</div>
-          <div class="an-desc">Prioritized autonomous decisions</div>
+          <div class="an-desc">Agents execute based on insights</div>
           <div class="an-status" style="background:var(--accent-glow);color:var(--accent2)">● 5 Actions Ready</div>
         </div>
         <div class="agent-node" data-agent="2" onclick="activateAgent(2)">
           <div class="an-icon">📊</div>
           <div class="an-name">Merch Optimize</div>
-          <div class="an-desc">Demand-driven shelf intelligence</div>
+          <div class="an-desc">Demand signals drive shelf actions</div>
           <div class="an-status" style="background:var(--amber-bg);color:var(--amber)">● 4 Changes</div>
         </div>
         <div class="agent-node" data-agent="3" onclick="activateAgent(3)">
@@ -486,6 +488,238 @@ document.querySelectorAll('.pain-card').forEach(card => {
   });
 });
 </script>
+</section>
+
+<!-- ════════════════════════ INSIGHT → ACTION GAP ════════════════════════ -->
+<section id="sec-gap" class="section">
+<style>
+/* ──── Insight-Action Flow ──── */
+.ia-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:36px}
+.ia-block{padding:24px;border-radius:var(--radius-lg);position:relative}
+.ia-block.forecast{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15)}
+.ia-block.insights{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15)}
+.ia-block.agentic{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.08));border:1px solid rgba(99,102,241,.3);box-shadow:0 0 30px rgba(99,102,241,.08)}
+.ia-block h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ia-block .ia-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:100px}
+.ia-block ul{list-style:none;padding:0}
+.ia-block li{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:8px}
+.ia-block li:last-child{border-bottom:none}
+.ia-block li .li-icon{font-size:14px;flex-shrink:0}
+.ia-arrow{display:flex;align-items:center;justify-content:center;padding:0 8px;font-size:24px;color:var(--text3)}
+.ia-arrow svg{width:32px;height:32px}
+.ia-arrow.gap-arrow{position:relative}
+.ia-arrow.gap-arrow .gap-label{position:absolute;top:50%;left:50%;transform:translate(-50%,24px);font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;opacity:1;transition:opacity .4s}
+
+/* ──── Execution Gap Toggle ──── */
+.gap-toggle-wrap{text-align:center;margin-bottom:32px}
+.gap-toggle{display:inline-flex;border-radius:10px;background:var(--bg2);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.gap-toggle button{padding:12px 28px;font-size:13px;font-weight:700;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:var(--transition);position:relative}
+.gap-toggle button.active{color:#fff}
+.gap-toggle button.today.active{background:rgba(239,68,68,.15);color:var(--red)}
+.gap-toggle button.agentic-btn.active{background:rgba(99,102,241,.15);color:var(--accent2)}
+
+/* Toggle states */
+.gap-state{transition:var(--transition)}
+.gap-delay{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;border-radius:8px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.1);font-size:12px;color:var(--red);transition:var(--transition)}
+.gap-delay .delay-icon{font-size:16px}
+.gap-speed{display:none;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;border-radius:8px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.1);font-size:12px;color:var(--green);transition:var(--transition)}
+.gap-speed .speed-icon{font-size:16px}
+.agentic-state .gap-delay{display:none!important}
+.agentic-state .gap-speed{display:flex!important}
+.agentic-state .ia-block.agentic{animation:agenticPulse 2s ease-in-out infinite}
+@keyframes agenticPulse{0%,100%{box-shadow:0 0 30px rgba(99,102,241,.08)}50%{box-shadow:0 0 40px rgba(99,102,241,.2)}}
+.agentic-state .gap-arrow .gap-label{opacity:0}
+.agentic-state .ia-arrow.gap-arrow svg{color:var(--green)}
+
+/* ──── Agent Governance Panel ──── */
+.gov-panel{max-width:520px;margin:0 auto;padding:24px;border-radius:var(--radius-lg);background:var(--bg2);border:1px solid rgba(255,255,255,.08)}
+.gov-panel h3{font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.gov-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.gov-row:last-child{border-bottom:none}
+.gov-row .gov-label{font-size:13px;color:var(--text2)}
+.gov-row .gov-value{font-size:13px;font-weight:700}
+.gov-toggle-switch{position:relative;width:44px;height:24px;border-radius:12px;background:var(--bg4);cursor:pointer;transition:var(--transition);border:none}
+.gov-toggle-switch.on{background:rgba(16,185,129,.3)}
+.gov-toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:var(--transition)}
+.gov-toggle-switch.on::after{left:23px}
+.gov-confidence{display:flex;align-items:center;gap:8px}
+.gov-conf-bar{width:80px;height:6px;border-radius:3px;background:var(--bg4);overflow:hidden}
+.gov-conf-fill{height:100%;border-radius:3px;background:var(--green);transition:width .6s}
+.gov-log{margin-top:16px;max-height:140px;overflow-y:auto;border-radius:8px;background:var(--bg);border:1px solid rgba(255,255,255,.04);padding:8px 12px}
+.gov-log-entry{font-size:11px;color:var(--text3);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02);display:flex;gap:8px}
+.gov-log-entry:last-child{border-bottom:none}
+.gov-log-entry .log-time{color:var(--text3);flex-shrink:0}
+.gov-log-entry .log-action{color:var(--text2)}
+.gov-log-entry .log-status{margin-left:auto;font-weight:600}
+.gov-log-entry .log-status.auto{color:var(--green)}
+.gov-log-entry .log-status.pending{color:var(--amber)}
+@media(max-width:900px){.ia-flow{grid-template-columns:1fr;gap:16px}.ia-arrow{transform:rotate(90deg);padding:4px 0}}
+</style>
+
+  <div class="section-header">
+    <h2>🔄 Insight → Action Flow</h2>
+    <p>Your forecasting systems already know what will happen — agents close the gap to action</p>
+  </div>
+
+  <!-- Toggle -->
+  <div class="gap-toggle-wrap">
+    <div class="gap-toggle">
+      <button class="today active" onclick="setGapState('today',this)">📋 Today: Manual Execution</button>
+      <button class="agentic-btn" onclick="setGapState('agentic',this)">⚡ Agentic: Autonomous Execution</button>
+    </div>
+  </div>
+
+  <!-- 3-block Flow -->
+  <div id="gap-flow-container" class="gap-state">
+    <div class="ia-flow">
+      <!-- Block 1: Forecasting -->
+      <div class="ia-block forecast">
+        <h3>
+          <span style="font-size:18px">📡</span> Forecasting &amp; Demand Signals
+          <span class="ia-tag" style="background:var(--blue-bg);color:var(--blue)">Existing Systems</span>
+        </h3>
+        <ul>
+          <li><span class="li-icon">📊</span> Demand forecast models (Wegmans analytics)</li>
+          <li><span class="li-icon">📦</span> Real-time inventory levels across 3 stores</li>
+          <li><span class="li-icon">🏷️</span> Active promotions &amp; pricing rules</li>
+          <li><span class="li-icon">🌤️</span> Weather &amp; seasonal demand signals</li>
+          <li><span class="li-icon">📈</span> Historical sales velocity &amp; trends</li>
+        </ul>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div class="ia-arrow">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="16" x2="28" y2="16"/><polyline points="22 10 28 16 22 22"/></svg>
+      </div>
+
+      <!-- Block 2: Insights -->
+      <div class="ia-block insights">
+        <h3>
+          <span style="font-size:18px">💡</span> Insights &amp; Alerts
+          <span class="ia-tag" style="background:var(--amber-bg);color:var(--amber)">Generated Today</span>
+        </h3>
+        <ul>
+          <li><span class="li-icon">🚨</span> Stockout risk: Baby Spinach (0.3 days supply)</li>
+          <li><span class="li-icon">📦</span> Overstock identified: Whole Milk (6 days supply)</li>
+          <li><span class="li-icon">📉</span> Missed promotion: Milk has no markdown trigger</li>
+          <li><span class="li-icon">🍓</span> Promo demand surge: Strawberry BOGO → 1.6× lift</li>
+          <li><span class="li-icon">⚠️</span> Vendor risk: Blue Harvest at 0.87 reliability</li>
+        </ul>
+        <div class="gap-delay">
+          <span class="delay-icon">⏳</span>
+          <span><strong>The Execution Gap:</strong> These insights sit in reports. Average response time: 4–8 hours. Some never get actioned.</span>
+        </div>
+        <div class="gap-speed">
+          <span class="speed-icon">⚡</span>
+          <span><strong>Gap Closed:</strong> Insights stream directly to agents. Response time: &lt;2.1 seconds. 100% action rate.</span>
+        </div>
+      </div>
+
+      <!-- Arrow 2 (the gap) -->
+      <div class="ia-arrow gap-arrow">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="16" x2="28" y2="16"/><polyline points="22 10 28 16 22 22"/></svg>
+        <span class="gap-label">⬆ THE GAP</span>
+      </div>
+
+      <!-- Block 3: Agentic Execution -->
+      <div class="ia-block agentic">
+        <h3>
+          <span style="font-size:18px">🤖</span> Agentic Execution Layer
+          <span class="ia-tag" style="background:var(--accent-glow);color:var(--accent2)">NEW</span>
+        </h3>
+        <ul>
+          <li><span class="li-icon">🔄</span> Auto-reallocate: Transfer 15 spinach units from WEG-003</li>
+          <li><span class="li-icon">💰</span> Trigger pricing: Milk markdown $3.49 → $2.99</li>
+          <li><span class="li-icon">📞</span> Initiate reorder: 120 spinach + expedite salmon</li>
+          <li><span class="li-icon">🍓</span> Cross-store transfer: 30 strawberries to WEG-001</li>
+          <li><span class="li-icon">🛡️</span> Qualify backup vendor for salmon supply</li>
+        </ul>
+        <div class="gap-delay">
+          <span class="delay-icon">🚫</span>
+          <span>Today: These actions require manual coordination across 3+ teams, email chains, and approvals.</span>
+        </div>
+        <div class="gap-speed">
+          <span class="speed-icon">✅</span>
+          <span>Agents execute autonomously with governance guardrails. Human approves only high-risk actions.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact callout -->
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="display:inline-block;padding:14px 28px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.06)">
+        <span style="font-size:13px;color:var(--text2)">This does not replace your systems. <strong style="color:var(--accent2)">This makes them finally act in real time.</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent Governance Panel -->
+  <div class="gov-panel">
+    <h3>🛡️ Agent Governance <span class="ia-tag" style="background:var(--accent-glow);color:var(--accent2);margin-left:8px">Human-in-the-Loop</span></h3>
+    <div class="gov-row">
+      <span class="gov-label">Execution Mode</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:11px;color:var(--text3)">Approval Required</span>
+        <button class="gov-toggle-switch on" id="gov-mode" onclick="toggleGovMode(this)"></button>
+        <span style="font-size:11px;color:var(--green);font-weight:600">Auto-Execute</span>
+      </div>
+    </div>
+    <div class="gov-row">
+      <span class="gov-label">Agent Confidence Score</span>
+      <div class="gov-confidence">
+        <div class="gov-conf-bar"><div class="gov-conf-fill" style="width:92%"></div></div>
+        <span class="gov-value" style="color:var(--green)">92%</span>
+      </div>
+    </div>
+    <div class="gov-row">
+      <span class="gov-label">Actions This Session</span>
+      <span class="gov-value">5 executed · 0 overridden · 0 blocked</span>
+    </div>
+    <div class="gov-row">
+      <span class="gov-label">Risk Threshold</span>
+      <span class="gov-value" style="color:var(--amber)">Revenue impact &gt; $500 → require approval</span>
+    </div>
+    <h4 style="font-size:12px;color:var(--text3);margin-top:16px;margin-bottom:8px">📋 Action Log</h4>
+    <div class="gov-log">
+      <div class="gov-log-entry"><span class="log-time">08:12am</span><span class="log-action">Spinach transfer WEG-003 → WEG-001 (15 units)</span><span class="log-status auto">Auto ✓</span></div>
+      <div class="gov-log-entry"><span class="log-time">08:14am</span><span class="log-action">Milk markdown $3.49 → $2.99 (85 units)</span><span class="log-status auto">Auto ✓</span></div>
+      <div class="gov-log-entry"><span class="log-time">08:15am</span><span class="log-action">Strawberry cross-store transfer (30 units)</span><span class="log-status auto">Auto ✓</span></div>
+      <div class="gov-log-entry"><span class="log-time">08:18am</span><span class="log-action">Emergency spinach reorder — $396 (120 units)</span><span class="log-status pending">⏳ Approval</span></div>
+      <div class="gov-log-entry"><span class="log-time">08:19am</span><span class="log-action">Salmon expedite shipping — vendor Blue Harvest</span><span class="log-status pending">⏳ Approval</span></div>
+    </div>
+  </div>
+
+  <script>
+  function setGapState(state, btn) {
+    const container = document.getElementById('gap-flow-container');
+    const btns = btn.parentElement.querySelectorAll('button');
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (state === 'agentic') {
+      container.classList.add('agentic-state');
+    } else {
+      container.classList.remove('agentic-state');
+    }
+  }
+  function toggleGovMode(el) {
+    el.classList.toggle('on');
+    const label = el.classList.contains('on') ? 'Auto-Execute' : 'Approval Required';
+    const next = el.nextElementSibling;
+    const prev = el.previousElementSibling;
+    if (el.classList.contains('on')) {
+      next.style.color = 'var(--green)';
+      next.style.fontWeight = '600';
+      next.textContent = 'Auto-Execute';
+      prev.style.fontWeight = 'normal';
+    } else {
+      next.style.color = 'var(--text3)';
+      next.style.fontWeight = 'normal';
+      next.textContent = 'Auto-Execute';
+      prev.style.color = 'var(--amber)';
+      prev.style.fontWeight = '600';
+    }
+  }
+  </script>
 </section>
 
 <!-- ════════════════════════ STORE INTELLIGENCE ════════════════════════ -->
@@ -588,7 +822,7 @@ document.querySelectorAll('.pain-card').forEach(card => {
 <section id="sec-actions" class="section">
   <div class="section-header">
     <h2>🤖 Autonomous Actions</h2>
-    <p>AI-prioritized decisions ready for one-click execution</p>
+    <p>Agent-prioritized decisions based on forecasting insights — ready for execution</p>
   </div>
 
   <div class="stat-row">
@@ -655,7 +889,7 @@ document.querySelectorAll('.pain-card').forEach(card => {
 <section id="sec-merch" class="section">
   <div class="section-header">
     <h2>📊 Merchandising Optimization</h2>
-    <p>AI-driven product placement and assortment decisions powered by demand signals</p>
+    <p>Demand-driven product placement and assortment decisions — agents execute what forecasting identifies</p>
   </div>
 
   <div class="toggle-group">
@@ -734,7 +968,7 @@ document.querySelectorAll('.pain-card').forEach(card => {
 <section id="sec-basket" class="section">
   <div class="section-header">
     <h2>🛒 Customer Basket AI</h2>
-    <p>Intelligent shopping assistant that builds optimized baskets from current inventory</p>
+    <p>Intelligent shopping assistant that builds optimized baskets from current inventory and demand signals</p>
   </div>
 
   <div class="grid-2" style="margin-bottom:24px">
@@ -759,7 +993,7 @@ document.querySelectorAll('.pain-card').forEach(card => {
 <section id="sec-supply" class="section">
   <div class="section-header">
     <h2>🔗 Supply Chain Risk</h2>
-    <p>Proactive risk identification before disruptions hit the shelf</p>
+    <p>Forecasting systems identify vendor risks — agents act before disruptions hit the shelf</p>
   </div>
 
   <div class="stat-row">
@@ -847,7 +1081,35 @@ document.querySelectorAll('.pain-card').forEach(card => {
 
       <!-- Phase 2 -->
       <div class="sim-phase" id="sim-phase-2">
-        <div class="phase-label"><span class="num">2</span> AI Recommended Actions (Top 5)</div>
+        <div class="phase-label"><span class="num">2</span> Inputs from Forecasting Systems</div>
+        <div class="grid-2" style="margin-bottom:16px">
+          <div class="card" style="border-color:rgba(59,130,246,.2)">
+            <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px">📡 Demand Forecast Signals</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.6">
+              • Strawberry demand ↑ 73% (seasonal + BOGO promo)<br>
+              • Spinach demand steady at 105 units/week<br>
+              • Salmon demand ↑ 33% (8-week trend)<br>
+              • Milk demand stable — oversupply flagged
+            </div>
+          </div>
+          <div class="card" style="border-color:rgba(59,130,246,.2)">
+            <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px">📦 Inventory &amp; Supply Signals</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.6">
+              • Excess inventory → Whole Milk (6 days supply)<br>
+              • Critical low → Spinach (0.3 days), Salmon (0.8 days)<br>
+              • Vendor alert → Blue Harvest reliability 0.87<br>
+              • Cross-store availability → WEG-003 has spinach surplus
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-bottom:16px;font-size:12px;color:var(--text3)">
+          <span style="padding:6px 16px;border-radius:100px;background:var(--accent-glow);color:var(--accent2);font-weight:600">↓ Agents execute based on these insights ↓</span>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="sim-phase" id="sim-phase-3">
+        <div class="phase-label"><span class="num">3</span> Agent Decisions</div>
         <div class="action-item critical" onclick="executeAction(this)">
           <div class="action-icon" style="background:var(--red-bg)">1</div>
           <div class="action-content">
@@ -890,9 +1152,9 @@ document.querySelectorAll('.pain-card').forEach(card => {
         </div>
       </div>
 
-      <!-- Phase 3 -->
-      <div class="sim-phase" id="sim-phase-3">
-        <div class="phase-label"><span class="num">3</span> Projected Business Impact</div>
+      <!-- Phase 4 -->
+      <div class="sim-phase" id="sim-phase-4">
+        <div class="phase-label"><span class="num">4</span> Projected Business Impact</div>
         <div class="impact-grid">
           <div class="impact-card revenue">
             <div class="icon">📈</div>
@@ -966,6 +1228,7 @@ function openSimulation() {
   setTimeout(() => document.getElementById('sim-phase-1').classList.add('visible'), 400);
   setTimeout(() => document.getElementById('sim-phase-2').classList.add('visible'), 1200);
   setTimeout(() => document.getElementById('sim-phase-3').classList.add('visible'), 2200);
+  setTimeout(() => document.getElementById('sim-phase-4').classList.add('visible'), 3200);
 }
 
 function closeSimulation() {
