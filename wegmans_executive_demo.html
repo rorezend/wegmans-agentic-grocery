@@ -182,7 +182,10 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
 /* Title block */
 .story-title-block{text-align:center;margin-bottom:56px;position:relative;z-index:1}
 .story-title-block h1{font-size:clamp(36px,5.5vw,64px);line-height:1.08;margin-bottom:12px;background:linear-gradient(135deg,#fff 25%,#a78bfa 65%,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.story-subtitle{font-size:18px;color:var(--text2);max-width:520px;margin:0 auto 32px}
+.story-subtitle{font-size:18px;color:var(--text2);max-width:520px;margin:0 auto 20px}
+.story-thesis{max-width:680px;margin:0 auto 40px;padding:20px 28px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(139,92,246,.04));border:1px solid rgba(99,102,241,.12);text-align:center}
+.story-thesis p{font-size:15px;line-height:1.7;color:var(--text2);font-style:italic}
+.story-thesis em{color:var(--accent2);font-style:normal;font-weight:700}
 
 /* Transformation flow container */
 .tf-flow{max-width:1200px;margin:0 auto;position:relative;z-index:1}
@@ -287,6 +290,9 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
     <div class="hero-badge">⚡ Powered by Azure AI Foundry + Copilot Studio</div>
     <h1>Wegmans Agentic Grocery OS</h1>
     <p class="story-subtitle">From Grocery Store to Autonomous Retail Platform</p>
+    <div class="story-thesis">
+      <p>"Wegmans already invests in best-in-class forecasting and analytics.<br>The next frontier is closing the execution gap—<br>moving from <em>knowing what will happen</em> → to <em>automatically acting on it</em>."</p>
+    </div>
   </div>
 
   <!-- ── Transformation Flow: Before → Agents → After ── -->
