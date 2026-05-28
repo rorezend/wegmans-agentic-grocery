@@ -1,0 +1,134 @@
+[
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10001",
+    "productName": "Organic Strawberries 1lb",
+    "weeklyDemand": [55, 60, 58, 72, 80, 85, 90, 95],
+    "forecastNextWeek": 100,
+    "forecastNext4Weeks": 420,
+    "seasonalityIndex": 1.4,
+    "promoLift": 1.6,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10002",
+    "productName": "Wegmans Whole Milk 1gal",
+    "weeklyDemand": [95, 98, 92, 100, 97, 95, 99, 96],
+    "forecastNextWeek": 98,
+    "forecastNext4Weeks": 390,
+    "seasonalityIndex": 1.0,
+    "promoLift": 1.1,
+    "trendDirection": "stable"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10003",
+    "productName": "Wegmans Italian Bread",
+    "weeklyDemand": [100, 105, 98, 110, 108, 112, 115, 105],
+    "forecastNextWeek": 110,
+    "forecastNext4Weeks": 440,
+    "seasonalityIndex": 1.0,
+    "promoLift": 1.0,
+    "trendDirection": "stable"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10004",
+    "productName": "Atlantic Salmon Fillet 1lb",
+    "weeklyDemand": [40, 42, 38, 45, 50, 52, 55, 53],
+    "forecastNextWeek": 55,
+    "forecastNext4Weeks": 220,
+    "seasonalityIndex": 1.2,
+    "promoLift": 1.3,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10005",
+    "productName": "Wegmans Sparkling Water 12pk",
+    "weeklyDemand": [65, 70, 72, 68, 75, 80, 78, 82],
+    "forecastNextWeek": 85,
+    "forecastNext4Weeks": 340,
+    "seasonalityIndex": 1.3,
+    "promoLift": 1.4,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10006",
+    "productName": "Organic Baby Spinach 5oz",
+    "weeklyDemand": [80, 85, 88, 90, 92, 95, 98, 100],
+    "forecastNextWeek": 105,
+    "forecastNext4Weeks": 420,
+    "seasonalityIndex": 1.1,
+    "promoLift": 1.2,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10007",
+    "productName": "Wegmans Greek Yogurt Vanilla 32oz",
+    "weeklyDemand": [58, 60, 62, 59, 61, 63, 60, 62],
+    "forecastNextWeek": 62,
+    "forecastNext4Weeks": 248,
+    "seasonalityIndex": 1.0,
+    "promoLift": 1.15,
+    "trendDirection": "stable"
+  },
+  {
+    "storeId": "WEG-001",
+    "sku": "SKU-10008",
+    "productName": "Rotisserie Chicken",
+    "weeklyDemand": [120, 125, 118, 130, 128, 135, 132, 140],
+    "forecastNextWeek": 140,
+    "forecastNext4Weeks": 560,
+    "seasonalityIndex": 1.05,
+    "promoLift": 1.0,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-002",
+    "sku": "SKU-10001",
+    "productName": "Organic Strawberries 1lb",
+    "weeklyDemand": [45, 48, 50, 55, 58, 60, 62, 65],
+    "forecastNextWeek": 68,
+    "forecastNext4Weeks": 280,
+    "seasonalityIndex": 1.4,
+    "promoLift": 1.6,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-002",
+    "sku": "SKU-10009",
+    "productName": "Chicken Breast Boneless 1lb",
+    "weeklyDemand": [50, 55, 52, 60, 58, 62, 65, 68],
+    "forecastNextWeek": 70,
+    "forecastNext4Weeks": 280,
+    "seasonalityIndex": 1.15,
+    "promoLift": 1.3,
+    "trendDirection": "rising"
+  },
+  {
+    "storeId": "WEG-003",
+    "sku": "SKU-10010",
+    "productName": "Wegmans Organic Eggs Dozen",
+    "weeklyDemand": [80, 82, 85, 78, 84, 86, 83, 88],
+    "forecastNextWeek": 88,
+    "forecastNext4Weeks": 350,
+    "seasonalityIndex": 1.0,
+    "promoLift": 1.1,
+    "trendDirection": "stable"
+  },
+  {
+    "storeId": "WEG-003",
+    "sku": "SKU-10006",
+    "productName": "Organic Baby Spinach 5oz",
+    "weeklyDemand": [70, 72, 75, 78, 80, 82, 85, 88],
+    "forecastNextWeek": 90,
+    "forecastNext4Weeks": 360,
+    "seasonalityIndex": 1.1,
+    "promoLift": 1.2,
+    "trendDirection": "rising"
+  }
+]

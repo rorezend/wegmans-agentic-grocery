@@ -1,0 +1,67 @@
+[
+  {
+    "storeId": "WEG-001",
+    "storeName": "Wegmans Pittsford",
+    "region": "Rochester",
+    "format": "supermarket",
+    "departments": [
+      { "name": "Produce", "staffCount": 8, "status": "open" },
+      { "name": "Dairy", "staffCount": 4, "status": "open" },
+      { "name": "Bakery", "staffCount": 5, "status": "open" },
+      { "name": "Meat & Seafood", "staffCount": 6, "status": "open" },
+      { "name": "Grocery", "staffCount": 10, "status": "open" },
+      { "name": "Frozen", "staffCount": 3, "status": "open" },
+      { "name": "Deli", "staffCount": 4, "status": "understaffed" },
+      { "name": "Prepared Foods", "staffCount": 7, "status": "open" },
+      { "name": "Pharmacy", "staffCount": 3, "status": "open" },
+      { "name": "Floral", "staffCount": 2, "status": "open" }
+    ],
+    "alerts": [
+      { "type": "equipment", "message": "Dairy cooler #3 running 2°F above target — maintenance scheduled", "severity": "warning" },
+      { "type": "safety", "message": "Wet floor sign needed in Produce after morning misting", "severity": "low" }
+    ],
+    "lastUpdated": "2026-05-28T08:00:00Z"
+  },
+  {
+    "storeId": "WEG-002",
+    "storeName": "Wegmans East Ave",
+    "region": "Rochester",
+    "format": "supermarket",
+    "departments": [
+      { "name": "Produce", "staffCount": 6, "status": "open" },
+      { "name": "Dairy", "staffCount": 3, "status": "open" },
+      { "name": "Bakery", "staffCount": 4, "status": "open" },
+      { "name": "Meat & Seafood", "staffCount": 5, "status": "open" },
+      { "name": "Grocery", "staffCount": 8, "status": "understaffed" },
+      { "name": "Frozen", "staffCount": 3, "status": "open" },
+      { "name": "Deli", "staffCount": 3, "status": "open" },
+      { "name": "Prepared Foods", "staffCount": 6, "status": "open" },
+      { "name": "Pharmacy", "staffCount": 2, "status": "open" },
+      { "name": "Floral", "staffCount": 1, "status": "open" }
+    ],
+    "alerts": [
+      { "type": "operational", "message": "Self-checkout lane 4 offline — technician arriving 10am", "severity": "medium" }
+    ],
+    "lastUpdated": "2026-05-28T08:15:00Z"
+  },
+  {
+    "storeId": "WEG-003",
+    "storeName": "Wegmans Hunt Valley",
+    "region": "Baltimore",
+    "format": "supermarket",
+    "departments": [
+      { "name": "Produce", "staffCount": 7, "status": "open" },
+      { "name": "Dairy", "staffCount": 4, "status": "open" },
+      { "name": "Bakery", "staffCount": 5, "status": "open" },
+      { "name": "Meat & Seafood", "staffCount": 5, "status": "open" },
+      { "name": "Grocery", "staffCount": 9, "status": "open" },
+      { "name": "Frozen", "staffCount": 3, "status": "open" },
+      { "name": "Deli", "staffCount": 4, "status": "open" },
+      { "name": "Prepared Foods", "staffCount": 8, "status": "open" },
+      { "name": "Pharmacy", "staffCount": 3, "status": "open" },
+      { "name": "Floral", "staffCount": 2, "status": "open" }
+    ],
+    "alerts": [],
+    "lastUpdated": "2026-05-28T07:45:00Z"
+  }
+]
